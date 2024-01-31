@@ -1,4 +1,4 @@
-import { RegisterCouponMainPageProps } from 'src/pages/Mypage/MypageCouponPage/RegisterCouponPage/RegisterCouponMainPage/index'
+import { RegisterCouponMainPageProps } from 'src/pages/Mypage/MypageCouponPage/RegCounponPage/RegCouponMainPage/index'
 
 const RegisterCouponMainPageView = ({}: RegisterCouponMainPageProps) => {
   return <>RegisterCouponMainView</>

@@ -1,4 +1,4 @@
-import RegisterCouponMainView from 'src/pages/Mypage/MypageCouponPage/RegisterCouponPage/RegisterCouponMainPage/view'
+import RegisterCouponMainView from 'src/pages/Mypage/MypageCouponPage/RegCounponPage/RegCouponMainPage/view'
 
 export interface RegisterCouponMainPageProps {}
 

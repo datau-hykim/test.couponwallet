@@ -1,4 +1,4 @@
-import RegisterCouponSelectImagePageView from 'src/pages/Mypage/MypageCouponPage/RegisterCouponPage/RegisterCouponSelectImagePage/view'
+import RegisterCouponSelectImagePageView from 'src/pages/Mypage/MypageCouponPage/RegCounponPage/RegCouponGalleryPage/view'
 
 export interface RegisterCouponSelectImagePageProps {}
 

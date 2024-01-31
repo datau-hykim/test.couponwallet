@@ -12,9 +12,9 @@ import PurchaseHistoryDetailPage from 'src/pages/Mypage/MypageCouponPage/Purchas
 import PurchaseHistoryRefundPage from 'src/pages/Mypage/MypageCouponPage/PurchaseHistoryPage/PurchaseHistoryRefundPage'
 import PurchaseHistoryApplyCompletePage from 'src/pages/Mypage/MypageCouponPage/PurchaseHistoryPage/PurchaseHistoryApplyCompletePage'
 
-import RegisterCouponMainPage from 'src/pages/Mypage/MypageCouponPage/RegisterCouponPage/RegisterCouponMainPage'
-import RegisterCouponSelectImagePage from 'src/pages/Mypage/MypageCouponPage/RegisterCouponPage/RegisterCouponSelectImagePage'
-import RegisterCouponFormPage from 'src/pages/Mypage/MypageCouponPage/RegisterCouponPage/RegisterCouponFormPage'
+import RegisterCouponMainPage from 'src/pages/Mypage/MypageCouponPage/RegCounponPage/RegCouponMainPage'
+import RegisterCouponSelectImagePage from 'src/pages/Mypage/MypageCouponPage/RegCounponPage/RegCouponGalleryPage'
+import RegisterCouponFormPage from 'src/pages/Mypage/MypageCouponPage/RegCounponPage/RegCouponFormPage'
 import NotifySettingsPage from 'src/pages/Mypage/MypageCouponPage/NotifySettingsPage'
 import NoticePage from 'src/pages/Mypage/MypageHelpCenterPage/NoticePage'
 import FaqPage from 'src/pages/Mypage/MypageHelpCenterPage/FaqPage'
