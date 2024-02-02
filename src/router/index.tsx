@@ -26,11 +26,25 @@ import AlwaysDiscountPage from 'src/pages/AlwaysDiscountPage'
 import CouponDetailPage from 'src/pages/CouponDetailPage'
 import CouponPaymentPage from 'src/pages/CouponPaymentPage'
 import { createBrowserRouter, redirect } from 'react-router-dom'
-import PageLayout from 'src/layout/PageLayout'
 import ErrorBoundaryPage from 'src/router/ErrorBoundaryPage'
-import { PageLoader } from 'src/router/routerLoader'
+import Test from 'src/pages/Test'
+import PageLayout, { loader as pageLoader } from 'src/layout/PageLayout'
 
+import { QueryClient } from '@tanstack/react-query'
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 2,
+    },
+  },
+})
 export const routes = [
+  {
+    path: 'test',
+    element: <Test />,
+    // loader: rootLoader(queryClient),
+    // action: rootAction(queryClient),
+  },
   {
     // 스플래시
     path: 'splash',
@@ -146,11 +160,12 @@ export const routes = [
 
 export const router = createBrowserRouter([
   {
-    element: <PageLayout />,
     path: '/:channel',
-    loader: PageLoader,
-    children: routes,
+    loader: pageLoader(queryClient),
+    // action: pageAction(queryClient),
+    element: <PageLayout />,
     errorElement: <ErrorBoundaryPage />,
+    children: routes,
   },
   {
     path: '*',

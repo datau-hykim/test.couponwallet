@@ -1,7 +1,7 @@
-import './App.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from 'src/router'
 import RouterLoaderLoading from 'src/router/RouteLoaderLoading'
+import React from 'react'
 
 const App = () => {
   return (
