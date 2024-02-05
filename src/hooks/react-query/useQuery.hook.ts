@@ -3,15 +3,16 @@ import { useQuery } from '@tanstack/react-query'
 import { fetch } from 'src/service/api/fetcher'
 
 const useTermsQuery = (): any => {
-  const { data, isSuccess, isLoading } = useQuery(TermsQueryOption())
+  const { data, isSuccess, isLoading } = useQuery(termsQueryOption())
   return { data: data?.Body, isLoading, isSuccess }
 }
 
-export { useTermsQuery }
-
-const TermsQueryOption = () => ({
+const termsQueryOption = () => ({
   queryKey: ['termsList'],
   queryFn: async () => await fetch.post(1020),
 })
 
-export { TermsQueryOption }
+//쿼리
+export { useTermsQuery }
+//옵션
+export { termsQueryOption }

@@ -108,7 +108,7 @@ export const routes = [
             path: 'register_coupon',
             children: [
               // 쿠폰 등록 메인
-              { path: 'main', element: <RegisterCouponMainPage />, index: true },
+              { path: '', element: <RegisterCouponMainPage />, index: true },
               // 이미지 선택
               { path: 'select_image', element: <RegisterCouponSelectImagePage /> },
               // 쿠폰 직접 등록
@@ -168,7 +168,7 @@ export const router = createBrowserRouter([
     children: routes,
   },
   {
-    path: '*',
+    path: '/',
     loader: async () => {
       return redirect('/web/splash')
     },

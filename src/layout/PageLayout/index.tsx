@@ -2,7 +2,7 @@ import PageLayoutView from 'src/layout/PageLayout/view'
 import { QueryClient } from '@tanstack/react-query'
 import { Params } from 'react-router-dom'
 import { extractNumbersFromString } from 'src/utils'
-import { TermsQueryOption, useTermsQuery } from 'src/hooks/react-query/useQuery.hook'
+import { termsQueryOption, useTermsQuery } from 'src/hooks/react-query/useQuery.hook'
 
 export interface PageLayoutProps {}
 
@@ -21,8 +21,8 @@ export const loader =
         return undefined
       default:
         return (
-          queryClient.getQueryData(TermsQueryOption().queryKey) ??
-          (await queryClient.fetchQuery(TermsQueryOption()))
+          queryClient.getQueryData(termsQueryOption().queryKey) ??
+          (await queryClient.fetchQuery(termsQueryOption()))
         )
     }
   }
