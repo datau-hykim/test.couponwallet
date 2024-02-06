@@ -30,11 +30,19 @@ import ErrorBoundaryPage from 'src/router/ErrorBoundaryPage'
 import Test from 'src/pages/Test'
 import PageLayout, { loader as pageLoader } from 'src/layout/PageLayout'
 
-import { QueryClient } from '@tanstack/react-query'
+import { QueryCache, QueryClient } from '@tanstack/react-query'
 export const queryClient = new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error, query) => {
+      if (query.meta?.errorMessage) {
+        console.log(query.meta.errorMessage)
+        console.warn(error)
+      }
+    },
+  }),
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 2,
+      // staleTime: 1000 * 60 * 2,
     },
   },
 })
@@ -161,7 +169,7 @@ export const routes = [
 export const router = createBrowserRouter([
   {
     path: '/:channel',
-    loader: pageLoader(queryClient),
+    // loader: pageLoader(queryClient),
     // action: pageAction(queryClient),
     element: <PageLayout />,
     errorElement: <ErrorBoundaryPage />,

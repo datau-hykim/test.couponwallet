@@ -31,7 +31,7 @@ export const loader =
 // }
 
 const PageLayout = () => {
-  const { data } = useTermsQuery()
+  // const { data } = useTermsQuery()
 
   const props: PageLayoutProps = {}
 

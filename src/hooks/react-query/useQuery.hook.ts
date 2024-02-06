@@ -9,7 +9,7 @@ const useTermsQuery = (): any => {
 
 const termsQueryOption = () => ({
   queryKey: ['termsList'],
-  queryFn: async () => await fetch.post(1020),
+  queryFn: async () => await fetch.post('', 1020),
 })
 
 //쿼리
