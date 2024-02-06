@@ -1,4 +1,4 @@
-import { useMatch, useMatches } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 
 const useMatchList = () => {
   const m_splash = useMatch('/:channel/splash')

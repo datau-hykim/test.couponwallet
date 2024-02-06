@@ -22,7 +22,4 @@ export const TelReplace = (str: string, maxLength: number) =>
     .slice(0, maxLength)
 
 export const NumReplace = (str: string, maxLength: number) =>
-  str
-    .replaceAll(regExps.numReg.replace, '')
-    .replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)
-    .slice(0, maxLength)
+  str.replaceAll(regExps.numReg.replace, '').slice(0, maxLength)

@@ -1,8 +1,9 @@
 import React from 'react'
 import JoinOtpCertPageView from 'src/pages/JoinPage/JoinOtpCertPage/view'
 import { FormProvider, SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
-import useOtpCertForm from 'src/hooks/react-hook-form/FormItems/useOtpCertForm.hook'
+import useOtpCertForm from 'src/hooks/react-hook-form/useOtpCertForm.hook'
 import { JoinOtpCertFormItemsType, JoinOtpCertFormType } from 'src/types/react-hook-form'
+import VAC from 'react-vac'
 
 export interface JoinOtpCertPageProps {
   registerAttribute: JoinOtpCertFormType
@@ -33,6 +34,7 @@ const JoinOtpCertPage = () => {
   }
   return (
     <FormProvider {...methods}>
+      <VAC name="JoinOtpCertPage" data={props} />
       <JoinOtpCertPageView {...props} />
     </FormProvider>
   )
