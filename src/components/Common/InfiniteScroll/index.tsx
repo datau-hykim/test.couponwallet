@@ -1,18 +1,14 @@
-import { targetType } from 'src/hooks/react-query/useInfiniteQuery.hook.ts/useObserver.hook'
-import { Dispatch, ReactNode, SetStateAction } from 'react'
-import { InfiniteData } from '@tanstack/react-query'
+import { targetType } from 'src/hooks/useObserver.hook'
+import React, { Dispatch, ReactNode, SetStateAction } from 'react'
 
-const InfiniteScroll = (props: {
-  children: ReactNode
-  InfiniteScrollQueryItems: {
-    data: InfiniteData<any, unknown> | undefined
-    isSuccess: boolean
-    isPending: boolean
-    setTarget: Dispatch<SetStateAction<targetType>>
-  }
-}) => {
-  const { children, InfiniteScrollQueryItems } = props
-  const { setTarget, isSuccess, isPending } = InfiniteScrollQueryItems
+interface InfiniteScrollProps {
+  isSuccess: boolean
+  isPending: boolean
+  setTarget: Dispatch<SetStateAction<targetType>>
+}
+
+const InfiniteScroll = (props: InfiniteScrollProps & { children: ReactNode }) => {
+  const { children, setTarget, isSuccess, isPending } = props
   return (
     <>
       {isPending && <>Loading...</>}

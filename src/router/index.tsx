@@ -27,7 +27,6 @@ import CouponDetailPage from 'src/pages/CouponDetailPage'
 import CouponPaymentPage from 'src/pages/CouponPaymentPage'
 import { createBrowserRouter, redirect } from 'react-router-dom'
 import ErrorBoundaryPage from 'src/router/ErrorBoundaryPage'
-import Test from 'src/pages/Test'
 import PageLayout, { loader as pageLoader } from 'src/layout/PageLayout'
 
 import { QueryCache, QueryClient } from '@tanstack/react-query'
@@ -42,17 +41,11 @@ export const queryClient = new QueryClient({
   }),
   defaultOptions: {
     queries: {
-      // staleTime: 1000 * 60 * 2,
+      staleTime: 1000 * 60 * 2,
     },
   },
 })
 export const routes = [
-  {
-    path: 'test',
-    element: <Test />,
-    // loader: rootLoader(queryClient),
-    // action: rootAction(queryClient),
-  },
   {
     // 스플래시
     path: 'splash',
@@ -91,12 +84,12 @@ export const routes = [
   },
   {
     // 마이페이지
-    path: 'mypage/:userId',
+    path: 'mypage',
     children: [
       // 마이페이지 메인
       { path: '', element: <MyMainPage />, index: true },
       {
-        path: 'coupon',
+        path: 'coupon/:userId',
         children: [
           {
             path: 'purchase_history',
@@ -133,7 +126,11 @@ export const routes = [
           // 공지사항
           { path: 'notice', element: <NoticePage />, index: true },
           // 자주 묻는 질문
-          { path: 'faq', element: <FaqPage /> },
+          {
+            path: 'faq/:contentType',
+            element: <FaqPage />,
+            // loader: pageLoader(queryClient),
+          },
           // Qna
           { path: 'qna', element: <QnaPage /> },
           // 약관 및 정책
@@ -179,6 +176,12 @@ export const router = createBrowserRouter([
     path: '/',
     loader: async () => {
       return redirect('/web/splash')
+    },
+  },
+  {
+    path: '/web/mypage/help_center/faq',
+    loader: async () => {
+      return redirect(`/web/mypage/help_center/faq/0`)
     },
   },
 ])

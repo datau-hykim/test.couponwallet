@@ -9,7 +9,7 @@ const useMatchList = () => {
   const m_join = useMatch('/:channel/join')
   const m_join_terms = useMatch('/:channel/join/terms')
   const m_mypage = useMatch('/:channel/mypage/:userId')
-  const m_purchase_history = useMatch('/:channel/mypage/:userId/coupon/purchase_history')
+  const m_purchase_history = useMatch('/:channel/mypage/coupon/:userId/purchase_history')
   const m_purchase_history_detail = useMatch(
     '/:channel/mypage/:userId/coupon/purchase_history/detail/:couponIdx',
   )
@@ -19,14 +19,14 @@ const useMatchList = () => {
   const m_purchase_history_complete = useMatch(
     '/:channel/mypage/:userId/coupon/purchase_history/detail/apply_complete/:couponIdx',
   )
-  const m_register_coupon = useMatch('/:channel/mypage/:userId/coupon/register_coupon')
+  const m_register_coupon = useMatch('/:channel/mypage/coupon/:userId/register_coupon')
   const m_register_coupon_image = useMatch(
     '/:channel/mypage/:userId/coupon/register_coupon/select_image',
   )
-  const m_register_coupon_form = useMatch('/:channel/mypage/:userId/coupon/register_coupon/form')
-  const m_notify_setting = useMatch('/:channel/mypage/:userId/coupon/notify_settings')
+  const m_register_coupon_form = useMatch('/:channel/mypage/coupon/:userId/register_coupon/form')
+  const m_notify_setting = useMatch('/:channel/mypage/coupon/:userId/notify_settings')
   const m_notice = useMatch('/:channel/mypage/:userId/help_center/notice')
-  const m_faq = useMatch('/:channel/mypage/:userId/help_center/faq')
+  const m_faq = useMatch('/:channel/mypage/help_center/faq/:contentType')
   const m_qna = useMatch('/:channel/mypage/:userId/help_center/qna')
   const m_terms = useMatch('/:channel/mypage/:userId/help_center/terms')
   const m_cancel = useMatch('/:channel/mypage/:userId/help_center/cancel')

@@ -5,7 +5,7 @@ import useOtpCertForm from 'src/hooks/react-hook-form/useOtpCertForm.hook'
 import { JoinOtpCertFormItemsType, JoinOtpCertFormType } from 'src/types/react-hook-form'
 import VAC from 'react-vac'
 import InfiniteScroll from 'src/components/Common/InfiniteScroll'
-import useInfiniteScrollQuery from 'src/hooks/react-query/useInfiniteQuery.hook.ts/useCouponInfiniteScrollQuery.hook'
+import useInfiniteScrollQuery from 'src/hooks/react-query/useCustomInfiniteQuery'
 
 export interface JoinOtpCertPageProps {
   registerAttribute: JoinOtpCertFormType
@@ -16,14 +16,14 @@ export interface JoinOtpCertPageProps {
 
 const JoinOtpCertPage = () => {
   const { methods, registerAttribute } = useOtpCertForm()
-  const InfiniteScrollQueryItems = useInfiniteScrollQuery({ option: 'coupon' })
+  const { setTarget, data, isPending, isSuccess } = useInfiniteScrollQuery<any, any>({
+    option: 'coupon',
+  })
   const { handleSubmit } = methods
-
   const otpCertRequest: SubmitHandler<{ pNumber: string }> = (data) => {
     const submitData = {}
     console.log('data.pNumber', data.pNumber)
   }
-
   const otpCertSubmit: SubmitHandler<{ certNumber: string }> = (data) => {
     console.log('data.certNumber', data.certNumber)
     const submitData = {}
@@ -39,13 +39,12 @@ const JoinOtpCertPage = () => {
     <FormProvider {...methods}>
       <VAC name="JoinOtpCertPage" data={props} />
       <JoinOtpCertPageView {...props} />
-      <InfiniteScroll InfiniteScrollQueryItems={InfiniteScrollQueryItems}>
-        {InfiniteScrollQueryItems.data?.pages.map(
-          (element) =>
-            element?.contents?.map((elm: any, index: number) => (
-              <div style={{ border: '1px solid red', height: '30px' }} onClick={() => {}} />
-            )),
-        )}
+      <InfiniteScroll setTarget={setTarget} isSuccess={isSuccess} isPending={isPending}>
+        {(data as any)?.pages?.at(0)?.contents.map((element: any) => (
+          <div style={{ border: '1px solid red', height: '100px' }} onClick={() => {}}>
+            {element?.id}
+          </div>
+        ))}
       </InfiniteScroll>
     </FormProvider>
   )

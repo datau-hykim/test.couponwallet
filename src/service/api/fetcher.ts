@@ -35,7 +35,7 @@ class CustomAxios {
 
   //T : request Body Type
   //U : response Body Type
-  async post(url: string, CmdType: number, Body?: any) {
+  async post<T, U>(url: string, CmdType: number, Body?: T): Promise<ResponseDataType<U>> {
     try {
       return await this.axiosInstance
         .post(url, httpData(CmdType, Body), { withCredentials: true })
