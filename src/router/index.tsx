@@ -59,7 +59,6 @@ export const routes = [
   {
     // 쿠폰 검색창
     path: 'search',
-    element: <SearchPage />,
     children: [
       // 검색 메인
       { path: '', element: <SearchMainPage />, index: true },
