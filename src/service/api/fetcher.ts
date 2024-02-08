@@ -14,8 +14,6 @@ const httpData = (CmdType: any, Body?: any) => {
     Header: {
       CmdType,
       RequestID: RequestID,
-      Language:
-        typeof navigator !== 'undefined' ? (navigator.language?.substring(0, 2) as string) : 'en',
     },
     Body,
   })
