@@ -1,18 +1,13 @@
 import styled from 'styled-components'
+import { HeaderProps } from 'src/layout/Header/index'
 
-const Header = () => {
-    return (
-        <HeaderWrap>
-            Header
-        </HeaderWrap>
-    )
+const HeaderView = ({}: HeaderProps) => {
+    return <HeaderViewWrap>Header</HeaderViewWrap>
 }
-export default Header
+export default HeaderView
 
 
-
-
-const HeaderWrap = styled.header`
+const HeaderViewWrap = styled.header`
   width: 100%;
   padding: 10px;
   background-color: tomato;

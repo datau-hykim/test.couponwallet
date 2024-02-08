@@ -1,20 +1,15 @@
 import styled from 'styled-components'
+import { TabBarProps } from 'src/layout/TabBar/index'
 
-const Tabbar = () => {
-    return (
-        <TabbarWrap>
-            Tabbar
-        </TabbarWrap>
-    )
+const TabBarView = ({}: TabBarProps) => {
+    return <TabBarViewWrap>TabBar</TabBarViewWrap>
 }
-export default Tabbar
+export default TabBarView
 
 
-
-
-const TabbarWrap = styled.header`
+const TabBarViewWrap = styled.div`
   width: 100%;
   padding: 10px;
-  background-color: lightgray;
+  background-color: darkgray;
   color: #111;
 `
