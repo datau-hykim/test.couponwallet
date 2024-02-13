@@ -1,15 +1,17 @@
 import { fetch } from 'src/service/api/fetcher'
-import useIntersectionObserver from 'src/hooks/useObserver.hook'
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { useInfiniteQueryOptionInterface, useInfiniteQueryOptionType } from 'src/types/react-query'
+import {
+  useInfiniteQueryOptionInterface,
+  useInfiniteQueryOptionType,
+  useInfiniteQueryReturnData
+} from 'src/types/react-query'
+import useIntersectionObserver from "src/hooks/useObserver.hook";
 
-const useInfiniteScrollQuery = <T, U>({ option }: { option: useInfiniteQueryOptionType }) => {
-  console.log('here')
+const useInfiniteScrollQuery = <T, U>({ option }: { option: useInfiniteQueryOptionType }):useInfiniteQueryReturnData<U> => {
   const queryOptions: {
     [key in useInfiniteQueryOptionType]: useInfiniteQueryOptionInterface<U>
   } = {
     coupon: useInfiniteScrollQueryOption<T, U>(),
-    banner: useInfiniteScrollQueryOption<T, U>(),
   }
   const queryOption = queryOptions[option as useInfiniteQueryOptionType]
   const {
@@ -26,7 +28,14 @@ const useInfiniteScrollQuery = <T, U>({ option }: { option: useInfiniteQueryOpti
     fetchNextPage,
   })
 
-  return { data, isSuccess, isPending, setTarget }
+
+
+  return {
+    data,
+    isSuccess,
+    isPending,
+    setTarget,
+  }
 }
 
 const useInfiniteScrollQueryOption = <T, U>() => ({

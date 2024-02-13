@@ -27,7 +27,7 @@ import CouponDetailPage from 'src/pages/CouponDetailPage'
 import CouponPaymentPage from 'src/pages/CouponPaymentPage'
 import { createBrowserRouter, redirect } from 'react-router-dom'
 import ErrorBoundaryPage from 'src/router/ErrorBoundaryPage'
-import PageLayout, { loader as pageLoader } from 'src/layout/PageLayout'
+import PageLayout, { loader as pageLoader } from 'src/components/layout/PageLayout'
 
 import { QueryCache, QueryClient } from '@tanstack/react-query'
 export const queryClient = new QueryClient({
@@ -166,7 +166,6 @@ export const router = createBrowserRouter([
   {
     path: '/:channel',
     // loader: pageLoader(queryClient),
-    // action: pageAction(queryClient),
     element: <PageLayout />,
     errorElement: <ErrorBoundaryPage />,
     children: routes,

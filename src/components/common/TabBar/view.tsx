@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { TabBarProps } from 'src/layout/TabBar/index'
+import { TabBarProps } from 'src/components/common/TabBar/index'
 
 const TabBarView = ({}: TabBarProps) => {
     return <TabBarViewWrap>TabBar</TabBarViewWrap>

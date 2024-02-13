@@ -1,4 +1,4 @@
-import FooterView from 'src/layout/Footer/view'
+import FooterView from 'src/components/layout/Footer/view'
 
 export interface FooterProps {}
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ModalStatusType, ModalStoreType, useModalStore } from 'src/store/zustand'
-import { Alert, Confirm } from 'src/components/Common/Modal/view'
+import { Alert, Confirm } from 'src/components/common/Modal/view'
 
 const Modal = () => {
   const modalStore = useModalStore()

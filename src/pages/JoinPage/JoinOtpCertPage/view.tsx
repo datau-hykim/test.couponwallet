@@ -1,6 +1,6 @@
 import { JoinOtpCertPageProps } from 'src/pages/JoinPage/JoinOtpCertPage/index'
-import CustomFormItems from 'src/components/Common/react-hook-form/CustomFormItems'
-import Modal from 'src/components/Common/Modal'
+import CustomFormItems from 'src/components/common/ReactHookForm/CustomFormItems'
+import Modal from 'src/components/common/Modal'
 import { useModalStore } from 'src/store/zustand'
 
 const JoinOtpCertPageView = ({

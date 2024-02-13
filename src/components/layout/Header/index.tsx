@@ -1,4 +1,5 @@
-import HeaderView from 'src/layout/Header/view'
+import HeaderView from 'src/components/layout/Header/view'
+import React from "react";
 
 export interface HeaderProps {}
 

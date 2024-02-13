@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import JoinOtpCertPageView from 'src/pages/JoinPage/JoinOtpCertPage/view'
 import { FormProvider, SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
 import useOtpCertForm from 'src/hooks/react-hook-form/useOtpCertForm.hook'
 import { JoinOtpCertFormItemsType, JoinOtpCertFormType } from 'src/types/react-hook-form'
 import VAC from 'react-vac'
-import InfiniteScroll from 'src/components/Common/InfiniteScroll'
-import useInfiniteScrollQuery from 'src/hooks/react-query/useCustomInfiniteQuery'
+import useInfiniteScrollQuery from 'src/hooks/react-query/useCustomInfiniteQuery.hook'
 
 export interface JoinOtpCertPageProps {
   registerAttribute: JoinOtpCertFormType
@@ -16,7 +15,7 @@ export interface JoinOtpCertPageProps {
 
 const JoinOtpCertPage = () => {
   const { methods, registerAttribute } = useOtpCertForm()
-  const { setTarget, data, isPending, isSuccess } = useInfiniteScrollQuery<any, any>({
+  const { data, setTarget } = useInfiniteScrollQuery<any, any>({
     option: 'coupon',
   })
   const { handleSubmit } = methods
@@ -39,13 +38,15 @@ const JoinOtpCertPage = () => {
     <FormProvider {...methods}>
       <VAC name="JoinOtpCertPage" data={props} />
       <JoinOtpCertPageView {...props} />
-      <InfiniteScroll setTarget={setTarget} isSuccess={isSuccess} isPending={isPending}>
-        {(data as any)?.pages?.at(0)?.contents.map((element: any) => (
-          <div style={{ border: '1px solid red', height: '100px' }} onClick={() => {}}>
-            {element?.id}
-          </div>
-        ))}
-      </InfiniteScroll>
+      <>
+        {data?.pages.map(
+          (element) =>
+            (element as any)?.contents.map((elm: any) => (
+              <div style={{ width: '100%', height: '70px', border: '1px solid blue' }} />
+            )),
+        )}
+        <div ref={setTarget}>바닥</div>,
+      </>
     </FormProvider>
   )
 }

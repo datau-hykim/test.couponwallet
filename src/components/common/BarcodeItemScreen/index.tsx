@@ -1,6 +1,6 @@
 import JsBarcode from 'jsbarcode'
 import { useEffect, useState } from 'react'
-import BarcodeItemScreenView from 'src/components/Common/BarcodeItemScreen/view'
+import BarcodeItemScreenView from 'src/components/common/BarcodeItemScreen/view'
 
 export interface BarcodeItemScreenProps {
   barcode: string

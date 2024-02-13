@@ -1,4 +1,4 @@
-import TabBarView from 'src/layout/TabBar/view'
+import TabBarView from 'src/components/common/TabBar/view'
 
 export interface TabBarProps {}
 

@@ -1,8 +1,8 @@
-import PageLayoutView from 'src/layout/PageLayout/view'
+import PageLayoutView from 'src/components/layout/PageLayout/view'
 import { QueryClient } from '@tanstack/react-query'
 import { Params } from 'react-router-dom'
 import { extractNumbersFromString } from 'src/utils'
-import { termsQueryOption } from 'src/hooks/react-query/useCustomQuery.hook'
+import {termsQueryOption, useCustomQuery} from 'src/hooks/react-query/useCustomQuery.hook'
 
 export interface PageLayoutProps {}
 
@@ -31,7 +31,7 @@ export const loader =
 // }
 
 const PageLayout = () => {
-  // const { data } = useCustomQuery()
+   // const { data } = useCustomQuery({option:'terms'})
 
   const props: PageLayoutProps = {}
 

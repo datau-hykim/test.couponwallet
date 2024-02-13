@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import ContentsLayoutView from 'src/layout/ContentsLayout/view'
+import ContentsLayoutView from 'src/components/layout/ContentsLayout/view'
 
 export interface ContentsLayoutProps {
   children: ReactNode

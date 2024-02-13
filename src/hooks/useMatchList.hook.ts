@@ -1,5 +1,14 @@
 import { useMatch } from 'react-router-dom'
 
+type MatchParams = {
+  channel: string;
+  userId: string;
+  searchword: string;
+  couponIdx: string;
+  brand: string;
+  contentType: string;
+  paymentStatus: string;
+}
 const useMatchList = () => {
   const m_splash = useMatch('/:channel/splash')
   const m_intro = useMatch('/:channel/intro')
