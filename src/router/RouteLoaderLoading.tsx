@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+import {useNavigate} from "react-router-dom";
 
 const RouterLoaderLoading = () => {
+    const navigate = useNavigate()
   return (
     <RouterLoaderLoadingWrap>
       <div> loader가 실행 완료되기전까지 노출 되는 화면입니다.</div>

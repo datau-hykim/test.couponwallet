@@ -1,46 +1,33 @@
 import PageLayoutView from 'src/components/layout/PageLayout/view'
 import { QueryClient } from '@tanstack/react-query'
-import { Params } from 'react-router-dom'
+import { Params, redirect } from 'react-router-dom'
 import { extractNumbersFromString } from 'src/utils'
-import {termsQueryOption, useCustomQuery} from 'src/hooks/react-query/useCustomQuery.hook'
-import {useEffect} from "react";
+import { termsQueryOption, useCustomQuery } from 'src/hooks/react-query/useCustomQuery.hook'
+import { useEffect } from 'react'
+import { Simulate } from 'react-dom/test-utils'
+import error = Simulate.error
 
 export interface PageLayoutProps {}
 
-export const loader =
-  (queryClient: QueryClient) =>
-  async ({ params }: { params: Params }) => {
-    const { channel, couponIdx, paymentStatus } = params
-    const paramsChannelList = ['web', 'app']
-    const paymentStatusList = ['success', 'fail']
+export const pageLoader = async ({ params }: { params: Params }) => {
+  const { channel } = params
+  const paramsChannelList = ['web', 'app']
 
-    // params 값 체크
-    switch (true) {
-      case !!couponIdx && extractNumbersFromString(couponIdx as string)?.length === 0:
-      case !!paramsChannelList && !paramsChannelList.includes(channel as string):
-      case !!paymentStatus && !paymentStatusList.includes(paymentStatus as string):
-        return undefined
-      default:
-        return (
-          queryClient.getQueryData(termsQueryOption().queryKey) ??
-          (await queryClient.fetchQuery(termsQueryOption()))
-        )
-    }
+  if (!!channel && paramsChannelList.includes(channel as string)) {
+    return null
   }
-// export const action = (queryClient: QueryClient) => async () => {
-//   await queryClient.invalidateQueries({ queryKey: ['termsList'] })
-// }
+}
 
 const PageLayout = () => {
-   // const { data } = useCustomQuery({option:'terms'})
-    useEffect(() => {
-        const setOneVh = () => {
-            const vh = window.innerHeight * 0.01
-            document.documentElement.style.setProperty('--vh', `${vh}px`)
-        }
-        setOneVh()
-        window.addEventListener('resize', setOneVh)
-    }, [])
+  // const { data } = useCustomQuery({option:'terms'})
+  useEffect(() => {
+    const setOneVh = () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+    setOneVh()
+    window.addEventListener('resize', setOneVh)
+  }, [])
 
   const props: PageLayoutProps = {}
 

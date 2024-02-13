@@ -16,6 +16,6 @@ const useCustomMutation = <T, U>({ option }: { option: useMutationOptionType }) 
 }
 const cancelQueryOption = <T, U>() => ({
   mutationKey: ['cancel'],
-  mutationFn: async (data: T) => fetch.post<T, U>('', 1020, data),
+  mutationFn: async (data: T) => fetch.post<T, U>( 1020, data),
 })
 export { useCustomMutation, cancelQueryOption }

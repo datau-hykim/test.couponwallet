@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HeaderProps } from 'src/components/layout/Header/index'
+import {useNavigate} from "react-router-dom";
 
 const HeaderView = ({}: HeaderProps) => {
+    const navigate = useNavigate()
   return (
     <HeaderViewWrap>
-      <HeaderBackButton>백버튼</HeaderBackButton>
+      <HeaderBackButton onClick={()=>navigate(-1)}>백버튼</HeaderBackButton>
       <HeaderContents>example Header</HeaderContents>
       <span />
     </HeaderViewWrap>

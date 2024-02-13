@@ -24,7 +24,7 @@ class CustomAxios {
   private readonly baseURL: string
 
   constructor() {
-    this.baseURL = `/`
+    this.baseURL = `/test`
     // this.baseURL = `https://wcrs.mfinder.ai`
     this.axiosInstance = axios.create({
       baseURL: this.baseURL,
@@ -33,11 +33,11 @@ class CustomAxios {
 
   //T : request Body Type
   //U : response Body Type
-  async post<T, U>(url: string, CmdType: number, Body?: T): Promise<ResponseDataType<U>> {
+  async post<T, U>(CmdType: number, Body?: T): Promise<ResponseDataType<U>> {
     try {
       return await this.axiosInstance
-        .post(url, httpData(CmdType, Body), { withCredentials: true })
-        .then((res: AxiosResponse<any>) => {
+        .post('',httpData(CmdType, Body), { withCredentials: true })
+        .then((res: AxiosResponse<ResponseDataType<U>>) => {
           const { data } = res
           return data
         })

@@ -3,11 +3,15 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import {
   useInfiniteQueryOptionInterface,
   useInfiniteQueryOptionType,
-  useInfiniteQueryReturnData
+  useInfiniteQueryReturnData,
 } from 'src/types/react-query'
-import useIntersectionObserver from "src/hooks/useObserver.hook";
+import useIntersectionObserver from 'src/hooks/useObserver.hook'
 
-const useInfiniteScrollQuery = <T, U>({ option }: { option: useInfiniteQueryOptionType }):useInfiniteQueryReturnData<U> => {
+const useInfiniteScrollQuery = <T, U>({
+  option,
+}: {
+  option: useInfiniteQueryOptionType
+}): useInfiniteQueryReturnData<U> => {
   const queryOptions: {
     [key in useInfiniteQueryOptionType]: useInfiniteQueryOptionInterface<U>
   } = {
@@ -28,8 +32,6 @@ const useInfiniteScrollQuery = <T, U>({ option }: { option: useInfiniteQueryOpti
     fetchNextPage,
   })
 
-
-
   return {
     data,
     isSuccess,
@@ -41,7 +43,7 @@ const useInfiniteScrollQuery = <T, U>({ option }: { option: useInfiniteQueryOpti
 const useInfiniteScrollQueryOption = <T, U>() => ({
   queryKey: ['couponItems'],
   queryFn: async ({ pageParam = 1 }) =>
-    await fetch.post<any, U>('coupon/list', 0, {
+    await fetch.post<any, U>(1020,  {
       page: pageParam,
       size: 10,
     }),

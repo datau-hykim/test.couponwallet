@@ -17,7 +17,7 @@ const useCustomQuery = <T, U>({ option }: { option: useQueryOptionType }) => {
 
 const termsQueryOption = <T, U>() => ({
   queryKey: ['termsList'],
-  queryFn: async () => await fetch.post<T, U>('', 1020),
+  queryFn: async () => await fetch.post<T, U>( 1020),
 })
 
 export { useCustomQuery, termsQueryOption }

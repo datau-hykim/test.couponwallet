@@ -1,9 +1,8 @@
 import SplashPage from 'src/pages/SplashPage'
 import IntroPage from 'src/pages/IntroPage'
-import SearchPage from 'src/pages/SearchPage'
 import SearchMainPage from 'src/pages/SearchPage/SearchMainPage'
 import SearchResultPage from 'src/pages/SearchPage/SearchResultPage'
-import MainPage from 'src/pages/MainPage'
+import MainPage, {mainPageLoader} from 'src/pages/MainPage'
 import JoinOtpCertPage from 'src/pages/JoinPage/JoinOtpCertPage'
 import JoinTermsPage from 'src/pages/JoinPage/JoinTermsPage'
 import MyMainPage from 'src/pages/Mypage/MypageMainPage'
@@ -27,7 +26,7 @@ import CouponDetailPage from 'src/pages/CouponDetailPage'
 import CouponPaymentPage from 'src/pages/CouponPaymentPage'
 import { createBrowserRouter, redirect } from 'react-router-dom'
 import ErrorBoundaryPage from 'src/router/ErrorBoundaryPage'
-import PageLayout, { loader as pageLoader } from 'src/components/layout/PageLayout'
+import PageLayout, {pageLoader} from 'src/components/layout/PageLayout'
 
 import { QueryCache, QueryClient } from '@tanstack/react-query'
 export const queryClient = new QueryClient({
@@ -69,6 +68,7 @@ export const routes = [
   {
     // 메인 화면
     path: 'main/:userId',
+    loader: mainPageLoader(queryClient),
     element: <MainPage />,
   },
   {
@@ -165,7 +165,7 @@ export const routes = [
 export const router = createBrowserRouter([
   {
     path: '/:channel',
-    // loader: pageLoader(queryClient),
+    loader: pageLoader,
     element: <PageLayout />,
     errorElement: <ErrorBoundaryPage />,
     children: routes,
@@ -174,12 +174,6 @@ export const router = createBrowserRouter([
     path: '/',
     loader: async () => {
       return redirect('/web/splash')
-    },
-  },
-  {
-    path: '/web/mypage/help_center/faq',
-    loader: async () => {
-      return redirect(`/web/mypage/help_center/faq/0`)
     },
   },
 ])

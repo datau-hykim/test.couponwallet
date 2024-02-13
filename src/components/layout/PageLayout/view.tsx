@@ -5,20 +5,21 @@ import styled from 'styled-components'
 import ContentsLayout from 'src/components/layout/ContentsLayout'
 import TopButton from 'src/components/common/TopButton'
 import { PageLayoutProps } from 'src/components/layout/PageLayout/index'
-import { useEffect } from 'react'
+import useMatchList from 'src/hooks/useMatchList.hook'
 
 const PageLayoutView = ({}: PageLayoutProps) => {
+  const { m_none_header, m_none_footer, m_none_topButton } = useMatchList()
 
   return (
     <PageLayoutViewWrap>
       <ScrollRestoration />
-      <Header />
+      {!m_none_header ? <Header /> : <EmptyContainer />}
       <ContentsLayout>
         <Outlet />
       </ContentsLayout>
-      <Footer />
+      {!m_none_footer ? <Footer /> : <EmptyContainer />}
       {/*<Tabbar />*/}
-      <TopButton />
+      {!m_none_topButton ? <TopButton /> : <EmptyContainer />}
     </PageLayoutViewWrap>
   )
 }
@@ -30,3 +31,5 @@ const PageLayoutViewWrap = styled.div`
   justify-content: space-between;
   height: calc(var(--vh, 1vh) * 100);
 `
+
+const EmptyContainer = styled.div``

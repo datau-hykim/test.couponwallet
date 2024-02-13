@@ -44,7 +44,16 @@ const useMatchList = () => {
   const m_coupon_detail = useMatch('/:channel/coupon/detail/:couponIdx')
   const m_coupon_payment_status = useMatch('/:channel/coupon/payment/:paymentStatus/:couponIdx')
 
+
+
+  //header 미노출 path
+  const m_none_header = m_splash
+  const m_none_footer = m_splash
+  const m_none_topButton = m_splash
   return {
+    m_none_header,
+    m_none_footer,
+    m_none_topButton,
     m_always_discount,
     m_coupon_detail,
     m_coupon_payment_status,
