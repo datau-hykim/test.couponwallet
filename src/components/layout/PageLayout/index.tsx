@@ -3,6 +3,7 @@ import { QueryClient } from '@tanstack/react-query'
 import { Params } from 'react-router-dom'
 import { extractNumbersFromString } from 'src/utils'
 import {termsQueryOption, useCustomQuery} from 'src/hooks/react-query/useCustomQuery.hook'
+import {useEffect} from "react";
 
 export interface PageLayoutProps {}
 
@@ -32,6 +33,14 @@ export const loader =
 
 const PageLayout = () => {
    // const { data } = useCustomQuery({option:'terms'})
+    useEffect(() => {
+        const setOneVh = () => {
+            const vh = window.innerHeight * 0.01
+            document.documentElement.style.setProperty('--vh', `${vh}px`)
+        }
+        setOneVh()
+        window.addEventListener('resize', setOneVh)
+    }, [])
 
   const props: PageLayoutProps = {}
 

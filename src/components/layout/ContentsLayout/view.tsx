@@ -12,7 +12,4 @@ const ContentsLayoutViewWrap = styled.div`
   align-items: center;
   flex-direction: column;
   border: 3px solid red;
-  height: 100%;
-  
-  
 `
