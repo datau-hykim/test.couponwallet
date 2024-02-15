@@ -1,6 +1,7 @@
 import MainPageView from 'src/pages/MainPage/view'
 import { QueryClient } from '@tanstack/react-query'
 import { termsQueryOption, useCustomQuery } from 'src/hooks/react-query/useCustomQuery.hook'
+import {redirect} from "react-router-dom";
 
 export interface MainPageProps {}
 
@@ -9,6 +10,7 @@ export const mainPageLoader = (queryClient: QueryClient) => async () => {
   //   queryClient.getQueryData(termsQueryOption().queryKey) ??
   //   (await queryClient.fetchQuery(termsQueryOption()))
   // )
+  // return redirect()
   return null
 }
 

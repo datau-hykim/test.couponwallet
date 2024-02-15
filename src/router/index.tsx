@@ -1,4 +1,4 @@
-import SplashPage from 'src/pages/SplashPage'
+import SplashPage, {splashPageLoader} from 'src/pages/SplashPage'
 import IntroPage from 'src/pages/IntroPage'
 import SearchMainPage from 'src/pages/SearchPage/SearchMainPage'
 import SearchResultPage from 'src/pages/SearchPage/SearchResultPage'
@@ -49,6 +49,7 @@ export const routes = [
     // 스플래시
     path: 'splash',
     element: <SplashPage />,
+    loader:splashPageLoader(queryClient),
   },
   {
     // 인트로
