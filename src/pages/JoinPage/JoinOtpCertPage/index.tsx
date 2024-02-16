@@ -38,15 +38,15 @@ const JoinOtpCertPage = () => {
     <FormProvider {...methods}>
       <VAC name="JoinOtpCertPage" data={props} />
       <JoinOtpCertPageView {...props} />
-      <>
-        {data?.pages.map(
-          (element) =>
-            (element as any)?.contents.map((elm: any) => (
-              <div style={{ width: '100%', height: '70px', border: '1px solid blue' }} />
-            )),
-        )}
-        <div ref={setTarget}>바닥</div>,
-      </>
+      {/*<>*/}
+      {/*  {data?.pages?.map(*/}
+      {/*    (element) =>*/}
+      {/*      (element as any)?.contents.map((elm: any) => (*/}
+      {/*        <div style={{ width: '100%', height: '70px', border: '1px solid blue' }} />*/}
+      {/*      )),*/}
+      {/*  )}*/}
+      {/*  <div ref={setTarget}>바닥</div>,*/}
+      {/*</>*/}
     </FormProvider>
   )
 }

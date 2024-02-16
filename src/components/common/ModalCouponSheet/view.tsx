@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import Marquee from 'react-fast-marquee';
-import { ModalCouponSheetProps } from './index';
+import {ModalCouponSheetProps} from './index';
 
 
 const ModalCouponSheetView = ({}: ModalCouponSheetProps) => {
@@ -14,28 +14,33 @@ const ModalCouponSheetView = ({}: ModalCouponSheetProps) => {
 
     return (
         <>
-            {isModalOpen && (
-                <ModalCouponSheetBg
-                    as={motion.div}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                />
-            )}
-            <ModalCouponSheetContent
-                as={motion.div}
-                initial={{ y: '100%', opacity: 0 }}
-                animate={{ y: isModalOpen ? 0 : '100%', opacity: isModalOpen ? 1 : 0 }}
-                transition={{ duration: 0.4, type: 'tween' }}
-            >
-                <ModalCouponSheetContentHeader>
-                    <button onClick={toggleModal}>닫기</button>
-                </ModalCouponSheetContentHeader>
-            </ModalCouponSheetContent>
+
+                {isModalOpen && (
+                    <>
+                        <ModalCouponSheetBg
+                            as={motion.div}
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                        />
+                        <ModalCouponSheetContent
+                            as={motion.div}
+                            initial={{y: '100%', opacity: 0}}
+                            animate={{y: isModalOpen ? 0 : '100%', opacity: isModalOpen ? 1 : 0}}
+                            transition={{duration: 0.4, type: 'tween'}}
+                        >
+                            <ModalCouponSheetContentHeader>
+                                <button onClick={toggleModal}>닫기</button>
+                            </ModalCouponSheetContentHeader>
+                        </ModalCouponSheetContent>
+                    </>
+                )}
+
+
             <FloatingCouponBarWrap
                 as={motion.div}
-                initial={{ y: 0 }}
-                animate={{ y: isModalOpen ? '100%' : 0 }}
+                initial={{y: 0}}
+                animate={{y: isModalOpen ? '100%' : 0}}
             >
                 <FloatingCouponBarContent>
                     <ExpirationNotify>7일 뒤에 사라져요</ExpirationNotify>
@@ -129,6 +134,7 @@ const ExpirationItem = styled.div`
   color: #fff;
   margin-top: 10px;
   overflow: hidden;
+
   p {
     margin-left: 20px;
     font-size: 14px;

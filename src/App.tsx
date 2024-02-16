@@ -3,7 +3,8 @@ import { router } from 'src/router'
 import { RouterProvider } from 'react-router-dom'
 import RouterLoaderLoading from 'src/router/RouteLoaderLoading'
 import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";  // style-reset 패키지
+import reset from "styled-reset";
+import ModalCouponSheet from "src/components/common/ModalCouponSheet";  // style-reset 패키지
 
 const App = () => {
   return (
